@@ -28,6 +28,13 @@ ON `degrees`.`department_id` = `departments`.`id`
 WHERE `departments`.`name` = "Dipartimento di Neuroscienze";
 
 3)
+SELECT `teachers`.`name`, `teachers`.`surname`, `courses`.*
+FROM `courses`
+INNER JOIN `course_teacher`
+ON `course_teacher`.`course_id` = `courses`.`id`
+INNER JOIN `teachers`
+ON `course_teacher`.`teacher_id` = `teachers`.`id`
+WHERE `teachers`.`id` = "44";
 
 4)
 
