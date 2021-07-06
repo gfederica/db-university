@@ -43,4 +43,4 @@ laurea (286)
 
 8.  SELECT * 
     FROM `teachers`
-    WHERE `phone` <> 'NOTNULL';
+    WHERE `phone` IS NULL;
