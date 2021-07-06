@@ -37,9 +37,36 @@ ON `course_teacher`.`teacher_id` = `teachers`.`id`
 WHERE `teachers`.`id` = "44";
 
 4)
+SELECT `students`.`name` AS `nome`, `students`.`surname` AS `cognome`, `degrees`.`name` AS `corso`, `departments`.`name` AS `dipartimento`
+FROM `students`
+INNER JOIN `degrees`
+ON `students`.`degree_id` = `degrees`.`id`
+INNER JOIN `departments`
+ON `degrees`.`department_id` = `departments`.`id`
+ORDER BY `cognome`;
 
 5)
+SELECT `degrees`.`name`, `degrees`.`level`, `courses`.`name`, `teachers`.`name`, `teachers`.`surname`
+FROM `degrees`
+INNER JOIN `courses` 
+ON `courses`.`degree_id` = `degrees`.`id`
+INNER JOIN `course_teacher`
+ON `course_teacher`.`course_id` = `courses`.`id`
+INNER JOIN `teachers`
+ON `course_teacher`.`teacher_id` = `teachers`.`id`
+ORDER BY `degrees`.`name`
 
 6)
+SELECT `teachers`.*, `departments`.`name`
+FROM `teachers`
+INNER JOIN `course_teacher`
+ON `course_teacher`.`teacher_id` = `teachers`.`id`
+INNER JOIN `courses`
+ON `course_teacher`.`course_id` = `courses`.`id`
+INNER JOIN `degrees`
+ON `courses`.`degree_id` = `degrees`.`id`
+INNER JOIN `departments`
+ON `degrees`.`department_id` = `departments`.`id`
+WHERE `departments`.`name` = "Dipartimento di Matematica"
 
 7)
